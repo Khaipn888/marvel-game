@@ -50,6 +50,7 @@ export default {
     handleFlipp() {
       if (this.isDisableClick) return false;
       this.isFlipped = !this.isFlipped;
+      this.isDisableClick = true;
       if (this.isFlipped){
         this.$emit("onHandleFlipp", this.cardValue);
       } 

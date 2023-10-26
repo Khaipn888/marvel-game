@@ -41,14 +41,14 @@ export default {
   },
   methods: {
     checkRules(card) {
-      if(this.cardChosing.length === 2) return false;
+      if (this.cardChosing.length === 2) return false;
       this.cardChosing.push(card);
       console.log(this.cardChosing.length);
       if (
         this.cardChosing.length === 2 &&
-        this.cardChosing[0].value === this.cardChosing[1].value 
+        this.cardChosing[0].value === this.cardChosing[1].value
       ) {
-        // th dung
+        // truong hop dung
         console.log("đúng");
         this.correctPair++;
         this.$refs[`card-${this.cardChosing[0].index}`][0].setDisableTrue();
@@ -63,13 +63,17 @@ export default {
         this.cardChosing.length === 2 &&
         this.cardChosing[0].value !== this.cardChosing[1].value
       ) {
-        // th sai
-        console.log('sai');
+        // truong hop sai
+        console.log("sai");
         const cardChosingCopy = [...this.cardChosing];
         this.cardChosing = [];
         setTimeout(() => {
           this.$refs[`card-${cardChosingCopy[0].index}`][0].onCloseCard();
           this.$refs[`card-${cardChosingCopy[1].index}`][0].onCloseCard();
+          setTimeout(() => {
+            this.$refs[`card-${cardChosingCopy[0].index}`][0].setDisableFalse();
+            this.$refs[`card-${cardChosingCopy[1].index}`][0].setDisableFalse();
+          }, 500);
         }, 800);
       } else return false;
     },
