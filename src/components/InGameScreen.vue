@@ -16,6 +16,7 @@
       :cardValue="{ index, value: card }"
       @onHandleFlipp="checkRules($event)"
       :numOfCard="cardArray.length"
+      :disableClick="disableClick"
     />
   </div>
 </template>
@@ -37,6 +38,7 @@ export default {
     return {
       correctPair: 0,
       cardChosing: [],
+      disableClick: false
     };
   },
   methods: {
@@ -44,6 +46,12 @@ export default {
       if (this.cardChosing.length === 2) return false;
       this.cardChosing.push(card);
       console.log(this.cardChosing.length);
+      if(this.cardChosing.length === 2) {
+        this.disableClick = true;
+        setTimeout(() => {
+        this.disableClick = false;     
+        }, 1000);
+      }
       if (
         this.cardChosing.length === 2 &&
         this.cardChosing[0].value === this.cardChosing[1].value

@@ -39,6 +39,9 @@ export default {
       type: Number,
       required: true,
     },
+    disableClick: {
+      type: Boolean
+    }
   },
   data() {
     return {
@@ -49,6 +52,7 @@ export default {
   methods: {
     handleFlipp() {
       if (this.isDisableClick) return false;
+      if(this.disableClick) return false;
       this.isFlipped = !this.isFlipped;
       this.isDisableClick = true;
       if (this.isFlipped) {
