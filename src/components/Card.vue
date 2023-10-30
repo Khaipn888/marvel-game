@@ -7,23 +7,19 @@
       height: `${Math.round(610 / Math.sqrt(numOfCard)) - 16}px`,
     }"
   >
- 
-
     <div
       class="card-mv__inner"
       :class="{ 'card-mv-flipped': isFlipped }"
       @click="handleFlipp()"
     >
       <div class="card-mv__face card-mv__face--front">
-        <div class="card-mv__content" ></div>
+        <div class="card-mv__content"></div>
       </div>
       <div class="card-mv__face card-mv__face--back">
         <div
           class="card-mv__content"
           :style="{ backgroundImage: `url(${returnUrlImage(urlImage)})` }"
-        >
-      /src
-    </div>
+        ></div>
       </div>
     </div>
   </div>
@@ -55,9 +51,9 @@ export default {
       if (this.isDisableClick) return false;
       this.isFlipped = !this.isFlipped;
       this.isDisableClick = true;
-      if (this.isFlipped){
+      if (this.isFlipped) {
         this.$emit("onHandleFlipp", this.cardValue);
-      } 
+      }
     },
     onCloseCard() {
       this.isFlipped = false;
@@ -70,8 +66,8 @@ export default {
       this.isDisableClick = false;
     },
     returnUrlImage(image) {
-      return  new URL('/src/assets/images/' + image, import.meta.url)
-    }
+      return new URL("/src/assets/images/" + image, import.meta.url).href;
+    },
   },
 };
 </script>
@@ -109,7 +105,7 @@ export default {
 .card-mv__face--front .card-mv__content {
   background: rgba(255, 255, 255, 0.8) url("../assets/images/f.png") no-repeat
     center center;
-  background-size: 50% ;
+  background-size: 50%;
   width: 100%;
   height: 100%;
 }
