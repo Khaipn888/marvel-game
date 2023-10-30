@@ -66,7 +66,7 @@ export default {
       this.isDisableClick = false;
     },
     returnUrlImage(image) {
-      return new URL("/src/assets/images/" + image, import.meta.url).href;
+      return new URL("../assets/images/" + image, import.meta.url);
     },
   },
 };
