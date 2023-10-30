@@ -7,6 +7,8 @@
       height: `${Math.round(610 / Math.sqrt(numOfCard)) - 16}px`,
     }"
   >
+ 
+
     <div
       class="card-mv__inner"
       :class="{ 'card-mv-flipped': isFlipped }"
@@ -18,8 +20,10 @@
       <div class="card-mv__face card-mv__face--back">
         <div
           class="card-mv__content"
-          :style="{ backgroundImage: `url(/src/assets/images/${urlImage})` }"
-        ></div>
+          :style="{ backgroundImage: `url(${returnUrlImage(urlImage)})` }"
+        >
+      /src
+    </div>
       </div>
     </div>
   </div>
@@ -64,6 +68,9 @@ export default {
     },
     setDisableFalse() {
       this.isDisableClick = false;
+    },
+    returnUrlImage(image) {
+      return  new URL('/src/assets/images/' + image, import.meta.url)
     }
   },
 };

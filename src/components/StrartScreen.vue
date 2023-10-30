@@ -1,5 +1,6 @@
 <template>
   <div class="main-screen w-50 mx-auto ">
+    
     <p class="d-flex justify-content-center display-1 fw-bold mt-5 pt-5 text-white ">Avengers Memories</p>
     <p class="fs-1 fw-bold  d-flex justify-content-center text-white">Select mode to start game</p>
     <div class="d-flex justify-content-center ">
